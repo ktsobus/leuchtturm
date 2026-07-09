@@ -42,7 +42,9 @@ export function FilmStrip() {
           start: "top top",
           end: () => `+=${distance()}`,
           pin: true,
-          scrub: 1,
+          // Lenis already smooths the scroll itself; exact scrub keeps the
+          // track fully in sync so nothing drifts at pin/unpin boundaries.
+          scrub: true,
           invalidateOnRefresh: true,
         },
       });

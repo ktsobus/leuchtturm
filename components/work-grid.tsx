@@ -11,6 +11,9 @@ type Project = {
   width: number;
   height: number;
   localFallback?: string;
+  /* fixed aspect box so late image loads never shift layout (pinned
+     sections below measure scroll positions once) */
+  aspect: string;
   /* masonry placement */
   className: string;
 };
@@ -23,6 +26,7 @@ const PROJECTS: Project[] = [
     seed: "leuchtturm-island",
     width: 1280,
     height: 720,
+    aspect: "aspect-video",
     className: "md:col-span-7",
   },
   {
@@ -33,6 +37,7 @@ const PROJECTS: Project[] = [
     width: 1200,
     height: 800,
     localFallback: "/stills/still_6_5.webp",
+    aspect: "aspect-[3/2]",
     className: "md:col-span-5 md:mt-24",
   },
   {
@@ -43,6 +48,7 @@ const PROJECTS: Project[] = [
     width: 800,
     height: 1000,
     localFallback: "/stills/still_8_5.webp",
+    aspect: "aspect-[4/5]",
     className: "md:col-span-4 md:mt-8",
   },
   {
@@ -53,6 +59,7 @@ const PROJECTS: Project[] = [
     width: 1200,
     height: 800,
     localFallback: "/stills/still_9_8.webp",
+    aspect: "aspect-[3/2]",
     className: "md:col-span-8 md:mt-32",
   },
   {
@@ -63,6 +70,7 @@ const PROJECTS: Project[] = [
     width: 800,
     height: 1000,
     localFallback: "/stills/still_4_5.webp",
+    aspect: "aspect-[4/5]",
     className: "md:col-span-5 md:col-start-4 md:-mt-10",
   },
 ];
@@ -92,7 +100,7 @@ export function WorkGrid() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <div className="overflow-hidden bg-ink-2">
+              <div className={`overflow-hidden bg-ink-2 ${p.aspect}`}>
                 <FallbackImage
                   src={p.src}
                   fallbackSeed={p.seed}
@@ -100,7 +108,7 @@ export function WorkGrid() {
                   width={p.width}
                   height={p.height}
                   localFallback={p.localFallback}
-                  className="h-auto w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <figcaption className="mt-4 flex items-baseline justify-between gap-4">
