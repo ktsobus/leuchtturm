@@ -1,9 +1,9 @@
 ---
-slot: Selected Work grid, tile 3 (portrait)
+slot: Selected Work grid, tile 3 (wide) + depth showcase scene 01
 type: image (Nano Banana)
-aspect: 4:5
+aspect: 16:9
 output: public/generated/work-skytrain.webp
-why: Portrait-format tile for masonry rhythm; introduces a moving-vehicle world to show range.
+why: Wide cinematic tile; introduces a moving-vehicle world to show range. Re-rendered landscape 2026-07-10 with a matching grayscale depth pass (work-skytrain-depth.webp, white = near) that drives the WebGL depth showcase.
 ---
 
 Generate a hand-painted animation still of a night train crossing a sea viaduct.

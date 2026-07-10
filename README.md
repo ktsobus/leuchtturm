@@ -29,6 +29,8 @@ done
 
 Every non-footage image and the contact-section video loop have a prompt file in `media-prompts/` (one file per asset, Nano Banana for images, Veo 3.1 for video). Render them in Google Flow and drop the outputs into `public/generated/` using the `output` filename from each file's frontmatter. Until then the site falls back to seeded Picsum placeholders, then to footage stills, so nothing ever renders broken.
 
+Raw Flow renders live in `media-prompts/renders/`; the web-ready WebP versions are converted with ffmpeg (`-vf "scale=2000:-2" -quality 82`). Two artworks also ship a grayscale depth pass (`work-*-depth.webp`, white = near) that drives the WebGL depth-scan section (`components/depth-scene.tsx`).
+
 ## Accessibility
 
 All pinning, scrubbing and marquee motion collapses to static layouts under `prefers-reduced-motion`. The hero then shows a plain still with the full headline and call to action.

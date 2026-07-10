@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { FallbackImage } from "./fallback-image";
 
 type Project = {
@@ -45,22 +45,22 @@ const PROJECTS: Project[] = [
     kind: "Music video, 2025",
     src: "/generated/work-skytrain.webp",
     seed: "leuchtturm-night-train",
-    width: 800,
-    height: 1000,
+    width: 2000,
+    height: 1116,
     localFallback: "/stills/still_8_5.webp",
-    aspect: "aspect-[4/5]",
-    className: "md:col-span-4 md:mt-8",
+    aspect: "aspect-video",
+    className: "md:col-span-8 md:mt-8",
   },
   {
     title: "The Quiet Dome",
     kind: "Title sequence, 2024",
     src: "/generated/work-observatory.webp",
     seed: "leuchtturm-observatory",
-    width: 1200,
-    height: 800,
+    width: 1600,
+    height: 894,
     localFallback: "/stills/still_9_8.webp",
-    aspect: "aspect-[3/2]",
-    className: "md:col-span-8 md:mt-32",
+    aspect: "aspect-[4/5]",
+    className: "md:col-span-4 md:mt-32",
   },
   {
     title: "Lantern Market",
@@ -76,7 +76,6 @@ const PROJECTS: Project[] = [
 ];
 
 export function WorkGrid() {
-  const reduce = useReducedMotion();
   return (
     <section id="work" className="py-32 md:py-44">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -91,7 +90,7 @@ export function WorkGrid() {
             <motion.figure
               key={p.title}
               className={`group ${p.className}`}
-              initial={reduce ? false : { opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{

@@ -19,7 +19,10 @@ const STILLS = [
 export function FilmStrip() {
   const wrapRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [reduced, setReduced] = useState(false);
+  // null until the preference is known: GSAP must not pin (it re-parents
+  // the section into a pin-spacer) before we know the tree will keep this
+  // shape, or React crashes removing the moved node on the swap.
+  const [reduced, setReduced] = useState<boolean | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -31,7 +34,7 @@ export function FilmStrip() {
 
   useGSAP(
     () => {
-      if (reduced || !wrapRef.current || !trackRef.current) return;
+      if (reduced !== false || !wrapRef.current || !trackRef.current) return;
       const distance = () =>
         trackRef.current!.scrollWidth - window.innerWidth;
       gsap.to(trackRef.current, {

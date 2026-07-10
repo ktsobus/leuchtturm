@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 const LINES = [
   "Every story starts as a",
@@ -11,7 +11,6 @@ const LINES = [
 ];
 
 export function Manifesto() {
-  const reduce = useReducedMotion();
   return (
     <section className="py-32 md:py-44">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -20,7 +19,7 @@ export function Manifesto() {
             <span key={line} className="block overflow-hidden">
               <motion.span
                 className="block"
-                initial={reduce ? false : { y: "100%" }}
+                initial={{ y: "100%" }}
                 whileInView={{ y: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
                 transition={{

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { MotionProvider } from "@/components/motion-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,7 +32,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-ink text-fog">
         <SmoothScroll />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <div className="grain" aria-hidden="true" />
       </body>
     </html>

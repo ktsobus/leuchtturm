@@ -1,15 +1,14 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { FallbackImage } from "./fallback-image";
 
 export function About() {
-  const reduce = useReducedMotion();
   return (
     <section id="studio" className="py-32 md:py-44">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-6 md:px-12 lg:grid-cols-2">
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -30,7 +29,7 @@ export function About() {
           </p>
         </motion.div>
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
