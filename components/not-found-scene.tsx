@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { gsap } from "gsap";
 
 /**
@@ -22,6 +22,14 @@ const MASK = [
 
 const CTA_CLASS =
   "mt-10 inline-flex items-center gap-3 bg-beam px-8 py-5 text-sm font-medium uppercase tracking-wide text-ink transition-transform duration-200 hover:-translate-y-0.5 active:scale-[0.98]";
+
+const REDUCED_MQ = "(prefers-reduced-motion: reduce)";
+
+function subscribeReduced(onChange: () => void) {
+  const mq = window.matchMedia(REDUCED_MQ);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
 
 function SceneCopy({ latent }: { latent?: boolean }) {
   return (
@@ -63,17 +71,11 @@ export function NotFoundScene() {
   const litRef = useRef<HTMLDivElement>(null);
   const wedgeRef = useRef<HTMLDivElement>(null);
   const lampRef = useRef<SVGCircleElement>(null);
-  const [reduced, setReduced] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
+  const reduced = useSyncExternalStore(
+    subscribeReduced,
+    () => window.matchMedia(REDUCED_MQ).matches,
+    () => false
+  );
 
   useEffect(() => {
     if (reduced) return;
