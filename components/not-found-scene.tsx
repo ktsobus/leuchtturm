@@ -129,9 +129,9 @@ export function NotFoundScene() {
     }
     const pos = {
       x: innerWidth / 2,
-      y: innerHeight * 0.45,
+      y: innerHeight * 1.65,
       tx: innerWidth / 2,
-      ty: innerHeight * 0.45,
+      ty: innerHeight * 1.65,
     };
     const onPointer = (e: PointerEvent) => {
       pos.tx = e.clientX;
@@ -160,7 +160,7 @@ export function NotFoundScene() {
   return (
     <div
       className="relative h-svh overflow-hidden bg-ink"
-      style={{ "--sx": "50%", "--sy": "45%", "--bx": "70%" } as React.CSSProperties}
+      style={{ "--sx": "50%", "--sy": "165%", "--bx": "70%" } as React.CSSProperties}
     >
       {/* Escape hatch: always faintly visible, above the dark. */}
       <header className="absolute left-6 top-5 z-30 md:left-12">
