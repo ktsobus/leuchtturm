@@ -196,10 +196,11 @@ export function NotFoundScene() {
         style={{ background: "rgba(150,161,171,0.10)" }}
       />
 
-      {/* Lighthouse silhouette, dimly visible. */}
+      {/* Lighthouse silhouette, dimly visible. Hidden below sm: at
+          narrow widths it sits low enough to crowd the body copy. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[42%] right-[6%] z-20 w-16 md:w-20"
+        className="pointer-events-none absolute bottom-[42%] right-[6%] z-20 hidden w-16 sm:block md:w-20"
       >
         <svg viewBox="0 0 60 150" className="w-full" role="presentation">
           {/* tower */}
