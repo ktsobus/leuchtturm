@@ -81,6 +81,8 @@ export function NotFoundScene() {
     if (reduced) return;
     const lit = litRef.current;
     if (!lit) return;
+    const lamp = lampRef.current;
+    const wedge = wedgeRef.current;
 
     /* One normalized value drives both the beam mask spot and the
        wedge rotation so the light and the lamp stay in sync. */
@@ -90,8 +92,8 @@ export function NotFoundScene() {
         "--bx",
         `${gsap.utils.interpolate(80, 6, beam.t)}%`
       );
-      if (wedgeRef.current) {
-        wedgeRef.current.style.transform = `rotate(${gsap.utils.interpolate(
+      if (wedge) {
+        wedge.style.transform = `rotate(${gsap.utils.interpolate(
           1.5,
           11,
           beam.t
@@ -107,8 +109,8 @@ export function NotFoundScene() {
       repeat: -1,
       onUpdate: applyBeam,
     });
-    const pulse = lampRef.current
-      ? gsap.to(lampRef.current, {
+    const pulse = lamp
+      ? gsap.to(lamp, {
           opacity: 0.25,
           duration: 1.6,
           ease: "sine.inOut",
@@ -117,14 +119,24 @@ export function NotFoundScene() {
         })
       : null;
 
+    /* Reduced-motion can flip mid-flight; reset the tweened values
+       back to their static resting state so nothing is left frozen
+       at an arbitrary opacity/rotation. */
+    const resetToRest = () => {
+      if (lamp) gsap.set(lamp, { clearProps: "opacity" });
+      if (wedge) wedge.style.transform = "rotate(4deg)";
+    };
+
     /* Cursor searchlight, lerped so the lamp feels heavy. Touch
-       devices keep the default centered spot plus a wider sweeping
-       beam so the reveal works without a cursor. */
+       devices get the wider sweeping beam alone; the searchlight
+       spot stays parked off-screen so the reveal works without a
+       cursor. */
     if (!window.matchMedia("(pointer: fine)").matches) {
       lit.style.setProperty("--bw", "44rem");
       return () => {
         sweep.kill();
         pulse?.kill();
+        resetToRest();
       };
     }
     const pos = {
@@ -154,13 +166,14 @@ export function NotFoundScene() {
       gsap.ticker.remove(tick);
       sweep.kill();
       pulse?.kill();
+      resetToRest();
     };
   }, [reduced]);
 
   return (
     <div
       className="relative h-svh overflow-hidden bg-ink"
-      style={{ "--sx": "50%", "--sy": "165%", "--bx": "70%" } as React.CSSProperties}
+      style={{ "--sx": "50%", "--sy": "165%", "--bx": "54.1%" } as React.CSSProperties}
     >
       {/* Escape hatch: always faintly visible, above the dark. */}
       <header className="absolute left-6 top-5 z-30 md:left-12">
@@ -235,7 +248,7 @@ export function NotFoundScene() {
       {/* Lit reveal layer, masked by searchlight + beam spot. */}
       <div
         ref={litRef}
-        className="absolute inset-0"
+        className="absolute inset-0 focus-within:[mask-image:none]! focus-within:[-webkit-mask-image:none]!"
         style={
           reduced
             ? undefined
