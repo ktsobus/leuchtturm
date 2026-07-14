@@ -22,7 +22,8 @@
   --color-fog-dim: var(--fog-dim);
   --color-beam: var(--beam);
   --color-line: var(--line);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-institute);
+  --font-heading: var(--font-crewmate);
   --font-mono: var(--font-geist-mono);
   --radius: 0;
 }
@@ -34,8 +35,18 @@ html {
 body {
   background: var(--ink);
   color: var(--fog);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-institute), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+/* LT Crewmate for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-crewmate), var(--font-institute), system-ui, sans-serif;
 }
 
 ::selection {
