@@ -82,7 +82,7 @@ export function FilmStrip() {
     <section ref={wrapRef} className="relative overflow-hidden">
       <div ref={trackRef} className="flex h-[100dvh] items-center gap-8 pl-6 md:gap-12 md:pl-12">
         <div className="w-[80vw] shrink-0 md:w-[36vw]">
-          <h2 className="text-4xl font-medium tracking-tighter leading-[1.05] md:text-5xl">
+          <h2 className="text-4xl font-medium tracking-[0.03em] leading-[1.05] md:text-5xl">
             One island. Ten seconds. Two hundred forty frames.
           </h2>
           <p className="mt-6 max-w-sm text-fog-dim leading-relaxed">

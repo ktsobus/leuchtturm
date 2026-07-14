@@ -43,11 +43,11 @@ function SceneCopy({ latent }: { latent?: boolean }) {
         Signal lost — 53.8°N 8.1°E
       </p>
       {latent ? (
-        <span className="mt-4 text-[24vw] font-medium leading-[0.85] tracking-tighter md:text-[18vw]">
+        <span className="mt-4 text-[24vw] font-medium leading-[0.85] tracking-tight md:text-[18vw]">
           404
         </span>
       ) : (
-        <h1 className="mt-4 text-[24vw] font-medium leading-[0.85] tracking-tighter md:text-[18vw]">
+        <h1 className="mt-4 text-[24vw] font-medium leading-[0.85] tracking-[0.03em] md:text-[18vw]">
           404
           <span className="sr-only"> — page not found</span>
         </h1>

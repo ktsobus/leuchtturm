@@ -145,7 +145,7 @@ export function HeroSequence() {
           className="absolute inset-x-0 bottom-0 px-6 pb-16 md:px-12 lg:px-20 lg:pb-24"
         >
           <div className="max-w-[1400px] mx-auto">
-            <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-[0.95] text-balance">
+            <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-medium tracking-[0.03em] leading-[0.95] text-balance">
               Worlds built frame by frame.
             </h1>
             <p className="mt-6 max-w-md text-base md:text-lg text-fog-dim leading-relaxed">

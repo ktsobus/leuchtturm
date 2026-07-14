@@ -40,7 +40,7 @@ export function CtaFooter() {
       <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/60 to-ink" />
       <div className="relative mx-auto flex min-h-[100dvh] max-w-[1400px] flex-col justify-between px-6 pt-32 md:px-12">
         <div>
-          <h2 className="max-w-3xl text-5xl font-medium tracking-tighter leading-[0.95] md:text-7xl">
+          <h2 className="max-w-3xl text-5xl font-medium tracking-[0.03em] leading-[0.95] md:text-7xl">
             Have a world in mind?
           </h2>
           <a

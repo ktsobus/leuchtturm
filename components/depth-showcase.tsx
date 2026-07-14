@@ -90,7 +90,7 @@ export function DepthShowcase() {
 
   const copy = (
     <div className="max-w-md">
-      <h2 className="text-4xl font-medium tracking-tighter md:text-5xl text-balance">
+      <h2 className="text-4xl font-medium tracking-[0.03em] md:text-5xl text-balance">
         Flat frames, deep worlds.
       </h2>
       <p className="mt-6 text-base leading-relaxed text-fog-dim md:text-lg">
