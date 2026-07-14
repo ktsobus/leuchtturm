@@ -23,7 +23,7 @@
   --color-beam: var(--beam);
   --color-line: var(--line);
   --font-sans: var(--font-institute);
-  --font-heading: var(--font-crewmate);
+  --font-heading: var(--font-masthead);
   --font-mono: var(--font-geist-mono);
   --radius: 0;
 }
@@ -39,14 +39,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* LT Crewmate for headings */
+/* Sunday Masthead for headings */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-crewmate), var(--font-institute), system-ui, sans-serif;
+  font-family: var(--font-masthead), var(--font-institute), system-ui, sans-serif;
 }
 
 ::selection {

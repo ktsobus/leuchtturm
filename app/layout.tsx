@@ -13,10 +13,10 @@ const institute = localFont({
   weight: "400",
 });
 
-// LT Crewmate — bold headings
-const crewmate = localFont({
-  src: "./fonts/LTCrewmate-Regular.otf",
-  variable: "--font-crewmate",
+// Sunday Masthead — bold headings
+const masthead = localFont({
+  src: "./fonts/SundayMasthead-Regular.woff2",
+  variable: "--font-masthead",
   display: "swap",
   weight: "700",
 });
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${institute.variable} ${crewmate.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${institute.variable} ${masthead.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ink text-fog">
         <SmoothScroll />
