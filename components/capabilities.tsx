@@ -34,7 +34,7 @@ export function Capabilities() {
     <section className="border-y border-line py-32 md:py-44">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-6 md:px-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
-          <h2 className="text-4xl font-medium tracking-tighter md:text-5xl">
+          <h2 className="text-4xl font-medium tracking-[0.03em] md:text-5xl">
             What the studio does
           </h2>
           <ul className="mt-12">
@@ -49,7 +49,7 @@ export function Capabilities() {
                     active === i ? "text-fog" : "text-fog-dim"
                   }`}
                 >
-                  <span className="text-3xl font-medium tracking-tighter md:text-4xl">
+                  <span className="text-3xl font-medium tracking-tight md:text-4xl">
                     {row.title}
                   </span>
                   <span className="mt-3 block max-w-lg text-base leading-relaxed text-fog-dim">

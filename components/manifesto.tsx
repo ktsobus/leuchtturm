@@ -14,7 +14,7 @@ export function Manifesto() {
   return (
     <section className="py-32 md:py-44">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <h2 className="max-w-5xl pl-0 text-4xl font-medium tracking-tighter leading-[1.05] md:pl-[12vw] md:text-6xl lg:text-7xl">
+        <h2 className="max-w-5xl pl-0 text-4xl font-medium tracking-[0.03em] leading-[1.05] md:pl-[12vw] md:text-6xl lg:text-7xl">
           {LINES.map((line, i) => (
             <span key={line} className="block overflow-hidden">
               <motion.span

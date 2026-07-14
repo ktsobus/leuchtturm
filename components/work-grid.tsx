@@ -82,7 +82,7 @@ export function WorkGrid() {
         <p className="text-[11px] uppercase tracking-[0.2em] text-fog-dim">
           Selected work
         </p>
-        <h2 className="mt-4 text-4xl font-medium tracking-tighter md:text-5xl">
+        <h2 className="mt-4 text-4xl font-medium tracking-[0.03em] md:text-5xl">
           Five worlds, so far.
         </h2>
         <div className="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-12 md:gap-x-8">

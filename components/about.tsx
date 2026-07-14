@@ -14,7 +14,7 @@ export function About() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-md lg:justify-self-end lg:order-2"
         >
-          <h2 className="text-4xl font-medium tracking-tighter md:text-5xl">
+          <h2 className="text-4xl font-medium tracking-[0.03em] md:text-5xl">
             Behind the light
           </h2>
           <p className="mt-6 leading-relaxed text-fog-dim">
